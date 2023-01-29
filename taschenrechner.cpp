@@ -13,20 +13,33 @@ class MainWindow : public QWidget
    double zahl_1=0,zahl_2=0,ergebnis;
    char math;
    bool mathe;
+   std::vector<double> test,test2;
+   void Zahl0_pressed();
    void Zahl1_pressed();
    void Zahl2_pressed();
+   void Zahl3_pressed();
+   void Zahl4_pressed();
+   void Zahl5_pressed();
+   void Zahl6_pressed();
+   void Zahl7_pressed();
+   void Zahl8_pressed();
+   void Zahl9_pressed();
    void EQ_pressed();
    void minus_pressed();
    void plus_pressed();
+   void divide_pressed();
+   void multi_pressed();
 };
 
 MainWindow::MainWindow()
 {
    setMinimumSize(700, 350);
 
-   QLineEdit *ausgabe= new QLineEdit();
+   ausgabe= new QLineEdit("0",this);
    ausgabe->setText("Viel Spass beim Rechnen");
    ausgabe->setMaxLength(40);
+   ausgabe->setReadOnly(true);
+   ausgabe->setAlignment(Qt::AlignRight);
    
    QPushButton *zahl_0_pb = new QPushButton();
    zahl_0_pb->setText("0");
@@ -97,102 +110,319 @@ MainWindow::MainWindow()
    
    layoutMain->addLayout(layout1);
  
-   connect(zahl_0_pb, &QPushButton::clicked, 
-         this, [&](){
-            zahl_1=0;
-            
-           std::cout << "Zahl ist:" << zahl_1 <<"\n";
-         });
+   connect(zahl_0_pb, &QPushButton::clicked,this, &MainWindow::Zahl0_pressed);
    connect(zahl_1_pb, &QPushButton::clicked,this, &MainWindow::Zahl1_pressed);
    connect(zahl_2_pb, &QPushButton::clicked,this, &MainWindow::Zahl2_pressed);
-   connect(zahl_3_pb, &QPushButton::clicked, 
-         this, [&](){
-            zahl_1=3;
-           std::cout << "Zahl ist:" << zahl_1 <<"\n";
-         });
-   connect(zahl_4_pb, &QPushButton::clicked, 
-         this, [&](){
-            zahl_1=4;
-           std::cout << "Zahl ist:" << zahl_1 <<"\n";
-         });
-   connect(zahl_5_pb, &QPushButton::clicked, 
-         this, [&](){
-            zahl_1=5;
-           std::cout << "Zahl ist:" << zahl_1 <<"\n";
-         });
-   connect(zahl_6_pb, &QPushButton::clicked, 
-         this, [&](){
-            zahl_1=6;
-           std::cout << "Zahl ist:" << zahl_1 <<"\n";
-         });
-   connect(zahl_7_pb, &QPushButton::clicked, 
-         this, [&](){
-            zahl_1=7;
-           std::cout << "Zahl ist:" << zahl_1 <<"\n";
-         });
-
-   connect(zahl_8_pb, &QPushButton::clicked, 
-         this, [&](){
-            zahl_1=8;
-           std::cout << "Zahl ist:" << zahl_1 <<"\n";
-         });
-
-   connect(zahl_9_pb, &QPushButton::clicked, 
-         this, [&](){
-            zahl_1=9;
-           std::cout << "Zahl ist:" << zahl_1 <<"\n";
-         });
+   connect(zahl_3_pb, &QPushButton::clicked,this, &MainWindow::Zahl3_pressed);
+   connect(zahl_4_pb, &QPushButton::clicked,this, &MainWindow::Zahl4_pressed);
+   connect(zahl_5_pb, &QPushButton::clicked,this, &MainWindow::Zahl5_pressed);
+   connect(zahl_6_pb, &QPushButton::clicked,this, &MainWindow::Zahl6_pressed);
+   connect(zahl_7_pb, &QPushButton::clicked,this, &MainWindow::Zahl7_pressed);
+   connect(zahl_8_pb, &QPushButton::clicked,this, &MainWindow::Zahl8_pressed);
+   connect(zahl_9_pb, &QPushButton::clicked,this, &MainWindow::Zahl9_pressed);
    connect(math_p_pb, &QPushButton::clicked,this, &MainWindow::plus_pressed);
    connect(math_s_pb, &QPushButton::clicked,this, &MainWindow::minus_pressed);
+   connect(math_d_pb, &QPushButton::clicked,this, &MainWindow::divide_pressed);
+   connect(math_m_pb, &QPushButton::clicked,this, &MainWindow::multi_pressed);
    connect(math_eq_pb, &QPushButton::clicked,this,&MainWindow::EQ_pressed);
-         
-         
+    
    
-  
+  //Close Funktion
    connect(close_pb, &QPushButton::clicked, 
          this, &QWidget::close);
-}
+      }
+      void MainWindow::Zahl0_pressed (){
+            if(mathe==false){
+            test.push_back(0);
+            std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test.size(); i++)
+                  {
+                  std::cout<<test[i]<<endl;
+                  ausgabe->insert(QString::number(test[i]));
+                  }
+            zahl_1=ausgabe->text().toDouble();
+            std::cout <<"Vector zu double ist:" << zahl_1;
+            }
+            if(mathe==true){
+            zahl_2=0;
+            std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
+            
+            ausgabe->insert("0");
+            }
+           
+           
+      }
       void MainWindow::Zahl1_pressed (){
-            zahl_1=1;
-            
-            if(mathe==true){
-            zahl_2=1;
-            
+            if(mathe==false){
+            test.push_back(1);
+            std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test.size(); i++)
+                  {
+                  std::cout<<test[i]<<endl;
+                  ausgabe->insert(QString::number(test[i]));
+                  }
+            zahl_1=ausgabe->text().toDouble();
             }
-           std::cout << "Zahl ist:" << zahl_1 <<"\n";
+            if(mathe==true){
+            test2.push_back(1);
+            std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test2.size(); i++)
+                  {
+                  std::cout<<test2[i]<<endl;
+                  ausgabe->insert(QString::number(test2[i]));
+                  }
+            zahl_2=ausgabe->text().toDouble();
+            }
            
-         }
+           
+      }
       void MainWindow::Zahl2_pressed(){
-            zahl_1=2;
-            if(mathe==true){
-            zahl_2=2;
-            
+           if(mathe==false){
+            test.push_back(2);
+            std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test.size(); i++)
+                  {
+                  std::cout<<test[i]<<endl;
+                  ausgabe->insert(QString::number(test[i]));
+                  }
+            zahl_1=ausgabe->text().toDouble();
             }
-           std::cout << "Zahl ist:" << zahl_1 <<"\n";
-           
-         }
-      void MainWindow::EQ_pressed(){
-            std::cout << "Zahl1" << zahl_1 << math << "Zahl2" << zahl_2 << "=" << "\n";
-            if(math=='+')
-            {ergebnis=zahl_1+zahl_2;}
-            else if(math=='-')
-            {ergebnis=zahl_1-zahl_2;}
-            std::cout << ergebnis << "\n";
-            mathe=false;
-            
+            if(mathe==true){
+            test2.push_back(2);
+            std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test2.size(); i++)
+                  {
+                  std::cout<<test2[i]<<endl;
+                  ausgabe->insert(QString::number(test2[i]));
+                  }
+            zahl_2=ausgabe->text().toDouble();
+            }
+      }
+      void MainWindow::Zahl3_pressed(){
+           if(mathe==false){
+            test.push_back(3);
+            std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test.size(); i++)
+                  {
+                  std::cout<<test[i]<<endl;
+                  ausgabe->insert(QString::number(test[i]));
+                  }
+            zahl_1=ausgabe->text().toDouble();
+            }
+            if(mathe==true){
+            test2.push_back(3);
+            std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test2.size(); i++)
+                  {
+                  std::cout<<test2[i]<<endl;
+                  ausgabe->insert(QString::number(test2[i]));
+                  }
+            zahl_2=ausgabe->text().toDouble();
+            }
+      }
+      void MainWindow::Zahl4_pressed(){
+           if(mathe==false){
+            test.push_back(4);
+            std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test.size(); i++)
+                  {
+                  std::cout<<test[i]<<endl;
+                  ausgabe->insert(QString::number(test[i]));
+                  }
+            zahl_1=ausgabe->text().toDouble();
+            }
+            if(mathe==true){
+            test2.push_back(4);
+            std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test2.size(); i++)
+                  {
+                  std::cout<<test2[i]<<endl;
+                  ausgabe->insert(QString::number(test2[i]));
+                  }
+            zahl_2=ausgabe->text().toDouble();
+            }
+      }
+      void MainWindow::Zahl5_pressed(){
+          if(mathe==false){
+            test.push_back(5);
+            std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test.size(); i++)
+                  {
+                  std::cout<<test[i]<<endl;
+                  ausgabe->insert(QString::number(test[i]));
+                  }
+            zahl_1=ausgabe->text().toDouble();
+            }
+            if(mathe==true){
+            test2.push_back(5);
+            std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test2.size(); i++)
+                  {
+                  std::cout<<test2[i]<<endl;
+                  ausgabe->insert(QString::number(test2[i]));
+                  }
+            zahl_2=ausgabe->text().toDouble();
+            }
+         } 
+                    
+      
+      void MainWindow::Zahl6_pressed(){
+           if(mathe==false){
+            test.push_back(6);
+            std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test.size(); i++)
+                  {
+                  std::cout<<test[i]<<endl;
+                  ausgabe->insert(QString::number(test[i]));
+                  }
+            zahl_1=ausgabe->text().toDouble();
+            }
+            if(mathe==true){
+            test2.push_back(6);
+            std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test2.size(); i++)
+                  {
+                  std::cout<<test2[i]<<endl;
+                  ausgabe->insert(QString::number(test2[i]));
+                  }
+            zahl_2=ausgabe->text().toDouble();
+            }
+      }
+      void MainWindow::Zahl7_pressed(){
+           if(mathe==false){
+            test.push_back(7);
+            std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test.size(); i++)
+                  {
+                  std::cout<<test[i]<<endl;
+                  ausgabe->insert(QString::number(test[i]));
+                  }
+            zahl_1=ausgabe->text().toDouble();
+            }
+            if(mathe==true){
+            test2.push_back(7);
+            std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test2.size(); i++)
+                  {
+                  std::cout<<test2[i]<<endl;
+                  ausgabe->insert(QString::number(test2[i]));
+                  }
+            zahl_2=ausgabe->text().toDouble();
+            }
+      }   
+
+      void MainWindow::Zahl8_pressed(){
+           if(mathe==false){
+            test.push_back(8);
+            std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test.size(); i++)
+                  {
+                  std::cout<<test[i]<<endl;
+                  ausgabe->insert(QString::number(test[i]));
+                  }
+            zahl_1=ausgabe->text().toDouble();
+            }
+            if(mathe==true){
+            test2.push_back(8);
+            std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test2.size(); i++)
+                  {
+                  std::cout<<test2[i]<<endl;
+                  ausgabe->insert(QString::number(test2[i]));
+                  }
+            zahl_2=ausgabe->text().toDouble();
+            }
+      }   
+      void MainWindow::Zahl9_pressed(){
+           if(mathe==false){
+            test.push_back(9);
+            std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test.size(); i++)
+                  {
+                  std::cout<<test[i]<<endl;
+                  ausgabe->insert(QString::number(test[i]));
+                  }
+            zahl_1=ausgabe->text().toDouble();
+            }
+            if(mathe==true){
+            test2.push_back(9);
+            std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
+            ausgabe->clear();
+            for(int i = 0; i < test2.size(); i++)
+                  {
+                  std::cout<<test2[i]<<endl;
+                  ausgabe->insert(QString::number(test2[i]));
+                  }
+            zahl_2=ausgabe->text().toDouble();
+            }
       }
       void MainWindow::plus_pressed()
       {
             math='+';
             mathe=true;
+            ausgabe->insert("+");
            
       }
       void MainWindow::minus_pressed()
       {
             math='-';
             mathe=true;
+            ausgabe->insert("-");
            
       }
+      void MainWindow::multi_pressed()
+      {
+            math='*';
+            mathe=true;
+            ausgabe->insert("*");
+           
+      }
+      void MainWindow::divide_pressed()
+      {
+            math='/';
+            mathe=true;
+            ausgabe->insert("/");
+           
+      }
+
+      void MainWindow::EQ_pressed(){
+            std::cout << "Zahl1" << zahl_1 << math << "Zahl2" << zahl_2 << "=" << "\n";
+            if(math=='+')
+            {ergebnis=zahl_1+zahl_2;}
+            else if(math=='-')
+            {ergebnis=zahl_1-zahl_2;}
+            else if(math=='*')
+            {ergebnis=zahl_1*zahl_2;}
+            else if(math=='/')
+            {ergebnis=zahl_1/zahl_2;}
+                  if(zahl_2 ==0)
+                  {std::cout <<"Du kannst nicht durch 0 teilen" <<"\n"; };
+            std::cout << ergebnis << "\n";
+            ausgabe->setText(QString::number(ergebnis));
+            mathe=false;
+            test.clear();
+            test2.clear();
+            
+      }
+      
 
 int main(int argc, char *argv[])
 {
