@@ -155,10 +155,12 @@ MainWindow::MainWindow()
             std::cout <<"Vector zu double ist:" << zahl_1;
             }
             if(mathe==true){
+                 
             zahl_2=0;
             std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
             
             ausgabe->insert("0");
+                  
             }
            
            
@@ -184,9 +186,17 @@ MainWindow::MainWindow()
             zahl_1=ausgabe->text().toDouble();
             }
             if(mathe==true){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_2=zahl_2+0.1;
+                        test2.clear();
+                        test2.push_back(zahl_2);
+                        }
+                  else{
             test2.push_back(1);
             std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test2.size(); i++)
                   {
                   std::cout<<test2[i]<<endl;
@@ -218,9 +228,17 @@ MainWindow::MainWindow()
             zahl_1=ausgabe->text().toDouble();
             }
             if(mathe==true){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_2=zahl_2+0.2;
+                        test2.clear();
+                        test2.push_back(zahl_2);
+                        }
+                  else{
             test2.push_back(2);
             std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test2.size(); i++)
                   {
                   std::cout<<test2[i]<<endl;
@@ -250,9 +268,17 @@ MainWindow::MainWindow()
             zahl_1=ausgabe->text().toDouble();
             }
             if(mathe==true){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_2=zahl_2+0.3;
+                        test2.clear();
+                        test2.push_back(zahl_2);
+                        }
+                  else{
             test2.push_back(3);
             std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test2.size(); i++)
                   {
                   std::cout<<test2[i]<<endl;
@@ -282,9 +308,17 @@ MainWindow::MainWindow()
             zahl_1=ausgabe->text().toDouble();
             }
             if(mathe==true){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_2=zahl_2+0.4;
+                        test2.clear();
+                        test2.push_back(zahl_2);
+                        }
+                  else{
             test2.push_back(4);
             std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test2.size(); i++)
                   {
                   std::cout<<test2[i]<<endl;
@@ -314,9 +348,17 @@ MainWindow::MainWindow()
             zahl_1=ausgabe->text().toDouble();
             }
             if(mathe==true){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_2=zahl_2+0.5;
+                        test2.clear();
+                        test2.push_back(zahl_2);
+                        }
+                  else{
             test2.push_back(5);
             std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test2.size(); i++)
                   {
                   std::cout<<test2[i]<<endl;
@@ -348,9 +390,17 @@ MainWindow::MainWindow()
             zahl_1=ausgabe->text().toDouble();
             }
             if(mathe==true){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_2=zahl_2+0.6;
+                        test2.clear();
+                        test2.push_back(zahl_2);
+                        }
+                  else{
             test2.push_back(6);
             std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test2.size(); i++)
                   {
                   std::cout<<test2[i]<<endl;
@@ -380,9 +430,17 @@ MainWindow::MainWindow()
             zahl_1=ausgabe->text().toDouble();
             }
             if(mathe==true){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_2=zahl_2+0.7;
+                        test2.clear();
+                        test2.push_back(zahl_2);
+                        }
+                  else{
             test2.push_back(7);
             std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test2.size(); i++)
                   {
                   std::cout<<test2[i]<<endl;
@@ -413,9 +471,17 @@ MainWindow::MainWindow()
             zahl_1=ausgabe->text().toDouble();
             }
             if(mathe==true){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_2=zahl_2+0.8;
+                        test2.clear();
+                        test2.push_back(zahl_2);
+                        }
+                  else{
             test2.push_back(8);
             std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test2.size(); i++)
                   {
                   std::cout<<test2[i]<<endl;
@@ -445,9 +511,17 @@ MainWindow::MainWindow()
             zahl_1=ausgabe->text().toDouble();
             }
             if(mathe==true){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_2=zahl_2+0.1;
+                        test2.clear();
+                        test2.push_back(zahl_2);
+                        }
+                  else{
             test2.push_back(9);
             std::cout << "Zahl 2 ist:" << zahl_2 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test2.size(); i++)
                   {
                   std::cout<<test2[i]<<endl;
@@ -468,6 +542,7 @@ MainWindow::MainWindow()
             math='+';
             mathe=true;
             ausgabe->insert("+");
+            dez=false;
            
       }
       void MainWindow::minus_pressed()
@@ -475,6 +550,7 @@ MainWindow::MainWindow()
             math='-';
             mathe=true;
             ausgabe->insert("-");
+            dez=false;
            
       }
       void MainWindow::multi_pressed()
@@ -482,6 +558,7 @@ MainWindow::MainWindow()
             math='*';
             mathe=true;
             ausgabe->insert("*");
+            dez=false;
            
       }
       void MainWindow::divide_pressed()
@@ -489,6 +566,7 @@ MainWindow::MainWindow()
             math='/';
             mathe=true;
             ausgabe->insert("/");
+            dez=false;
            
       }
 
