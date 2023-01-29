@@ -10,10 +10,10 @@ class MainWindow : public QWidget
  
  private:
    QLineEdit *ausgabe;
-   double zahl_1=0,zahl_2=0,ergebnis;
+   double zahl_1=0,zahl_2=0,zahl_3=0,ergebnis;
    char math;
-   bool mathe,fehler;
-   std::vector<double> test,test2;
+   bool mathe,fehler,dez;
+   std::vector<double> test,test2,test3;
    void Zahl0_pressed();
    void Zahl1_pressed();
    void Zahl2_pressed();
@@ -29,6 +29,7 @@ class MainWindow : public QWidget
    void plus_pressed();
    void divide_pressed();
    void multi_pressed();
+   void dez_pressed();
 };
 
 MainWindow::MainWindow()
@@ -125,6 +126,7 @@ MainWindow::MainWindow()
    connect(math_d_pb, &QPushButton::clicked,this, &MainWindow::divide_pressed);
    connect(math_m_pb, &QPushButton::clicked,this, &MainWindow::multi_pressed);
    connect(math_eq_pb, &QPushButton::clicked,this,&MainWindow::EQ_pressed);
+   connect(math_dez_pb, &QPushButton::clicked,this,&MainWindow::dez_pressed);
     
    
   //Close Funktion
@@ -133,9 +135,17 @@ MainWindow::MainWindow()
       }
       void MainWindow::Zahl0_pressed (){
             if(mathe==false){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_1=zahl_1+0.0;
+                        test.clear();
+                        test.push_back(zahl_1);
+                        }
+                  else{
             test.push_back(0);
             std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test.size(); i++)
                   {
                   std::cout<<test[i]<<endl;
@@ -155,9 +165,17 @@ MainWindow::MainWindow()
       }
       void MainWindow::Zahl1_pressed (){
             if(mathe==false){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_1=zahl_1+0.1;
+                        test.clear();
+                        test.push_back(zahl_1);
+                        }
+                  else{      
             test.push_back(1);
             std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test.size(); i++)
                   {
                   std::cout<<test[i]<<endl;
@@ -181,9 +199,17 @@ MainWindow::MainWindow()
       }
       void MainWindow::Zahl2_pressed(){
            if(mathe==false){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_1=zahl_1+0.2;
+                        test.clear();
+                        test.push_back(zahl_1);
+                        }
+                  else{
             test.push_back(2);
             std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test.size(); i++)
                   {
                   std::cout<<test[i]<<endl;
@@ -205,9 +231,17 @@ MainWindow::MainWindow()
       }
       void MainWindow::Zahl3_pressed(){
            if(mathe==false){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_1=zahl_1+0.3;
+                        test.clear();
+                        test.push_back(zahl_1);
+                        }
+                  else{
             test.push_back(3);
             std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test.size(); i++)
                   {
                   std::cout<<test[i]<<endl;
@@ -229,9 +263,17 @@ MainWindow::MainWindow()
       }
       void MainWindow::Zahl4_pressed(){
            if(mathe==false){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_1=zahl_1+0.4;
+                        test.clear();
+                        test.push_back(zahl_1);
+                        }
+                  else{
             test.push_back(4);
             std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test.size(); i++)
                   {
                   std::cout<<test[i]<<endl;
@@ -253,9 +295,17 @@ MainWindow::MainWindow()
       }
       void MainWindow::Zahl5_pressed(){
           if(mathe==false){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_1=zahl_1+0.5;
+                        test.clear();
+                        test.push_back(zahl_1);
+                        }
+                  else{
             test.push_back(5);
             std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test.size(); i++)
                   {
                   std::cout<<test[i]<<endl;
@@ -279,9 +329,17 @@ MainWindow::MainWindow()
       
       void MainWindow::Zahl6_pressed(){
            if(mathe==false){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_1=zahl_1+0.6;
+                        test.clear();
+                        test.push_back(zahl_1);
+                        }
+                  else{
             test.push_back(6);
             std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test.size(); i++)
                   {
                   std::cout<<test[i]<<endl;
@@ -303,9 +361,17 @@ MainWindow::MainWindow()
       }
       void MainWindow::Zahl7_pressed(){
            if(mathe==false){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_1=zahl_1+0.7;
+                        test.clear();
+                        test.push_back(zahl_1);
+                        }
+                  else{
             test.push_back(7);
             std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test.size(); i++)
                   {
                   std::cout<<test[i]<<endl;
@@ -328,9 +394,17 @@ MainWindow::MainWindow()
 
       void MainWindow::Zahl8_pressed(){
            if(mathe==false){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_1=zahl_1+0.8;
+                        test.clear();
+                        test.push_back(zahl_1);
+                        }
+                  else{
             test.push_back(8);
             std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test.size(); i++)
                   {
                   std::cout<<test[i]<<endl;
@@ -352,9 +426,17 @@ MainWindow::MainWindow()
       }   
       void MainWindow::Zahl9_pressed(){
            if(mathe==false){
+                  if(dez==true){
+                        ausgabe->clear();
+                        zahl_1=zahl_1+0.9;
+                        test.clear();
+                        test.push_back(zahl_1);
+                        }
+                  else{
             test.push_back(9);
             std::cout << "Zahl 1 ist:" << zahl_1 <<"\n";
             ausgabe->clear();
+                  }
             for(int i = 0; i < test.size(); i++)
                   {
                   std::cout<<test[i]<<endl;
@@ -373,6 +455,13 @@ MainWindow::MainWindow()
                   }
             zahl_2=ausgabe->text().toDouble();
             }
+      }
+      void MainWindow::dez_pressed(){
+           
+            ausgabe->insert(".");
+            dez=true;
+            
+      
       }
       void MainWindow::plus_pressed()
       {
@@ -427,6 +516,7 @@ MainWindow::MainWindow()
             test.clear();
             test2.clear();
             fehler=false;
+            dez=false;
       }
       
 
