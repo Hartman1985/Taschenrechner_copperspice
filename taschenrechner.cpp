@@ -12,7 +12,7 @@ class MainWindow : public QWidget
    QLineEdit *ausgabe;
    double zahl_1=0,zahl_2=0,ergebnis;
    char math;
-   bool mathe;
+   bool mathe,fehler;
    std::vector<double> test,test2;
    void Zahl0_pressed();
    void Zahl1_pressed();
@@ -414,13 +414,19 @@ MainWindow::MainWindow()
             else if(math=='/')
             {ergebnis=zahl_1/zahl_2;}
                   if(zahl_2 ==0)
-                  {std::cout <<"Du kannst nicht durch 0 teilen" <<"\n"; };
+                  {
+                  std::cout <<"Du kannst nicht durch 0 teilen" <<"\n";
+                  ausgabe->setText("Du kannst nicht durch 0 teilen");
+                  fehler=true;
+                  };
             std::cout << ergebnis << "\n";
-            ausgabe->setText(QString::number(ergebnis));
+            if(fehler==false){
+                  ausgabe->setText(QString::number(ergebnis));
+                  }
             mathe=false;
             test.clear();
             test2.clear();
-            
+            fehler=false;
       }
       
 
