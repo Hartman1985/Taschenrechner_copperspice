@@ -102,9 +102,9 @@ MainWindow::MainWindow()
    layout1->addWidget(zahl_3_pb,3,2);
    layout1->addWidget(math_m_pb,3,3);
    layout1->addWidget(zahl_0_pb,4,0);
-   layout1->addWidget(math_d_pb,4,1);
+   layout1->addWidget(math_d_pb,4,3);
    layout1->addWidget(math_eq_pb,4,2);
-   layout1->addWidget(math_dez_pb,4,3);
+   layout1->addWidget(math_dez_pb,4,1);
    layout1->addWidget(close_pb,5,0);
  
    QVBoxLayout *layoutMain = new QVBoxLayout(this);
